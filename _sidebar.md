@@ -15,3 +15,5 @@
   * [📘 Nghị định 44/2016](nd-44.md)
 
 * [📞 LIÊN HỆ VDC](lien-he.md)
+
+  * [Luật điện lực 2024](an-toan-dien/1775753524037.md)
