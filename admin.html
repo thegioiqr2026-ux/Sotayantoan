@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>VDC Admin Tool</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-10">
+    <div class="max-w-2xl mx-auto bg-white p-6 rounded shadow">
+        <h2 class="text-xl font-bold mb-4 text-red-600">VDC CONTENT CREATOR</h2>
+        <input id="t" type="text" placeholder="Tiêu đề bài viết" class="w-full mb-3 p-2 border rounded">
+        <textarea id="c" rows="5" placeholder="Nội dung tóm tắt..." class="w-full mb-3 p-2 border rounded"></textarea>
+        <input id="l" type="text" placeholder="Link Drive (PDF)" class="w-full mb-3 p-2 border rounded">
+        <button onclick="gen()" class="bg-red-600 text-white px-4 py-2 rounded">TẠO MÃ GITHUB</button>
+        <pre id="out" class="mt-4 p-3 bg-gray-800 text-green-400 text-sm rounded hidden"></pre>
+    </div>
+    <script>
+        function gen() {
+            let md = `# ${document.getElementById('t').value}\n\n${document.getElementById('c').value}\n\n`;
+            md += `<iframe src="${document.getElementById('l').value.replace('/view', '/preview')}" width="100%" height="600px"></iframe>`;
+            document.getElementById('out').innerText = md;
+            document.getElementById('out').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
