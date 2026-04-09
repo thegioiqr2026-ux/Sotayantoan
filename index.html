@@ -3,99 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <title>VDC - Sổ Tay An Toàn Vệ Sinh Lao Động</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Thư viện tra cứu an toàn lao động VDC - Metro số 1, Scavi, EVNHCMC">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
   
   <style>
-    /* 1. Đổi màu chủ đạo sang Đỏ VDC (giống EHS) */
-    :root {
-      --theme-color: #e53935; 
-    }
+    :root { --theme-color: #d32f2f; }
+    body { font-family: 'Segoe UI', sans-serif; -webkit-user-select: none; user-select: none; }
+    .sidebar-nav b { color: #d32f2f; text-transform: uppercase; }
+    
+    /* Chống in ấn */
+    @media print { body { display: none !important; } }
 
-    /* 2. Chỉnh font chữ hiện đại, dễ đọc trên di động */
-    body {
-      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* 3. Tùy chỉnh Sidebar (Menu bên trái) */
-    .sidebar {
-      background-color: #fff;
-      border-right: 1px solid #eee;
-    }
-    .sidebar-nav b {
-      color: #333;
-      text-transform: uppercase;
-      font-size: 0.85rem;
-    }
-
-    /* 4. Nút "ĐĂNG KÝ HUẤN LUYỆN" cố định góc màn hình (Để chốt khách) */
+    /* Nút đăng ký cố định */
     .cta-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #e53935;
-      color: white !important;
-      padding: 12px 20px;
-      border-radius: 30px;
-      font-weight: bold;
-      box-shadow: 0 4px 15px rgba(229, 57, 53, 0.4);
-      z-index: 999;
-      text-decoration: none !important;
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      transition: transform 0.3s;
+      position: fixed; bottom: 20px; right: 20px; background: #d32f2f;
+      color: white !important; padding: 12px 20px; border-radius: 30px;
+      font-weight: bold; z-index: 999; text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
-    .cta-button:hover { transform: scale(1.05); }
-
-    /* 5. Định dạng tiêu đề bài viết giống EHS */
-    .markdown-section h1 { font-weight: 800; color: #222; }
-    .markdown-section blockquote { border-left: 4px solid #e53935; color: #666; }
   </style>
 </head>
 <body>
   <div id="app">Đang tải nội dung VDC...</div>
-
-  <a href="https://zalo.me/YOUR_PHONE" class="cta-button">
-     📩 ĐĂNG KÝ HUẤN LUYỆN
-  </a>
+  <a href="https://zalo.me/SỐ_ĐIỆN_THOẠI" class="cta-button">📩 ĐĂNG KÝ HUẤN LUYỆN</a>
 
   <script>
     window.$docsify = {
       name: 'VDC Safety',
-      repo: '', // Để trống nếu không muốn hiện icon GitHub
-      loadSidebar: true, // Quan trọng: Bật menu từ file _sidebar.md
-      subMaxLevel: 3,    // Tự động tạo mục lục cho các tiêu đề H2, H3
-      auto2top: true,    // Tự động cuộn lên đầu khi chuyển trang
-      search: {
-        maxAge: 86400000,
-        paths: 'auto',
-        placeholder: '🔍 Tìm quy trình, văn bản...',
-        noData: '❌ Không tìm thấy kết quả!',
-        depth: 6
-      },
-      // Cấu hình phân trang (Nút Trước/Sau ở cuối bài)
-      pagination: {
-        previousText: 'BÀI TRƯỚC',
-        nextText: 'BÀI TIẾP THEO',
-        crossChapter: true,
-      },
-      copyCode: {
-        buttonText: 'Sao chép',
-        errorText: 'Lỗi',
-        successText: 'Đã chép'
-      }
+      loadSidebar: true,
+      subMaxLevel: 3,
+      search: 'auto',
+      pagination: { previousText: 'BÀI TRƯỚC', nextText: 'BÀI TIẾP THEO' }
     }
+    // Chống chuột phải
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    // Chống phím tắt Copy/In/Xem nguồn
+    document.onkeydown = function(e) {
+      if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 80 || e.keyCode === 85)) return false;
+    };
   </script>
-
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
 </body>
 </html>
