@@ -5,28 +5,24 @@
   <title>VDC - Sổ Tay An Toàn Vệ Sinh Lao Động</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-  
   <style>
     :root { --theme-color: #d32f2f; }
     body { font-family: 'Segoe UI', sans-serif; -webkit-user-select: none; user-select: none; }
-    .sidebar-nav b { color: #d32f2f; text-transform: uppercase; }
-    
-    /* Chống in ấn */
+    .sidebar { background-color: #f8f9fa; }
+    .sidebar-nav b { color: #d32f2f; text-transform: uppercase; font-size: 0.9em; }
+    .markdown-section { max-width: 900px; padding: 30px; line-height: 1.8; }
+    .markdown-section h1 { color: #b71c1c; border-bottom: 2px solid #d32f2f; padding-bottom: 10px; }
     @media print { body { display: none !important; } }
-
-    /* Nút đăng ký cố định */
     .cta-button {
-      position: fixed; bottom: 20px; right: 20px; background: #d32f2f;
-      color: white !important; padding: 12px 20px; border-radius: 30px;
-      font-weight: bold; z-index: 999; text-decoration: none;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      position: fixed; bottom: 20px; right: 20px; background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+      color: white !important; padding: 12px 25px; border-radius: 50px;
+      font-weight: bold; z-index: 999; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
   </style>
 </head>
 <body>
-  <div id="app">Đang tải nội dung VDC...</div>
-  <a href="https://zalo.me/SỐ_ĐIỆN_THOẠI" class="cta-button">📩 ĐĂNG KÝ HUẤN LUYỆN</a>
-
+  <div id="app">Đang tải tài liệu VDC...</div>
+  <a href="https://zalo.me/your_number" class="cta-button">📩 ĐĂNG KÝ HUẤN LUYỆN</a>
   <script>
     window.$docsify = {
       name: 'VDC Safety',
@@ -35,12 +31,8 @@
       search: 'auto',
       pagination: { previousText: 'BÀI TRƯỚC', nextText: 'BÀI TIẾP THEO' }
     }
-    // Chống chuột phải
-    document.addEventListener('contextmenu', event => event.preventDefault());
-    // Chống phím tắt Copy/In/Xem nguồn
-    document.onkeydown = function(e) {
-      if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 80 || e.keyCode === 85)) return false;
-    };
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.onkeydown = e => { if (e.ctrlKey && (e.keyCode===67 || e.keyCode===80 || e.keyCode===85)) return false; };
   </script>
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
