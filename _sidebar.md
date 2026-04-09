@@ -3,7 +3,7 @@
   * [📢 Thông báo mới](thong-bao.md)
 
 * **AN TOÀN CHUYÊN NGÀNH**
-  * [⚡ An toàn Điện](an-toan-dien.md)
+  * [⚡ An toàn Điện](an-toan-dien/README.md)
   * [🏗️ An toàn Xây dựng](an-toan-xay-dung.md)
 
 * **DỰ ÁN TIÊU BIỂU**
