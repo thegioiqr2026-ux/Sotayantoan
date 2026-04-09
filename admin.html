@@ -1,25 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>VDC Admin Tool</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 p-10">
-    <div class="max-w-2xl mx-auto bg-white p-6 rounded shadow">
-        <h2 class="text-xl font-bold mb-4 text-red-600">VDC CONTENT CREATOR</h2>
-        <input id="t" type="text" placeholder="Tiêu đề bài viết" class="w-full mb-3 p-2 border rounded">
-        <textarea id="c" rows="5" placeholder="Nội dung tóm tắt..." class="w-full mb-3 p-2 border rounded"></textarea>
-        <input id="l" type="text" placeholder="Link Drive (PDF)" class="w-full mb-3 p-2 border rounded">
-        <button onclick="gen()" class="bg-red-600 text-white px-4 py-2 rounded">TẠO MÃ GITHUB</button>
-        <pre id="out" class="mt-4 p-3 bg-gray-800 text-green-400 text-sm rounded hidden"></pre>
+<body class="bg-gray-100 p-4">
+    <div class="max-w-md mx-auto bg-white p-6 rounded-2xl shadow-lg">
+        <h2 class="text-xl font-bold text-red-700 mb-4 uppercase">VDC One-Touch Publish</h2>
+        
+        <div class="space-y-4">
+            <input id="title" type="text" placeholder="Tiêu đề văn bản" class="w-full p-3 border rounded-xl outline-none focus:border-red-500">
+            
+            <select id="folder" class="w-full p-3 border rounded-xl bg-gray-50">
+                <option value="phap-luat">📜 Pháp luật</option>
+                <option value="metro-no1">🚇 Metro số 1</option>
+                <option value="scavi">👕 Scavi</option>
+            </select>
+
+            <textarea id="summary" placeholder="Tóm tắt nội dung..." class="w-full p-3 border rounded-xl h-24 outline-none"></textarea>
+            
+            <div class="border-2 border-dashed p-4 rounded-xl text-center">
+                <input type="file" id="file" class="hidden" onchange="updateFileName()">
+                <label for="file" class="cursor-pointer text-blue-600 font-bold" id="fileLabel">📁 Chọn file PDF/Ảnh</label>
+            </div>
+
+            <button onclick="upload()" id="btn" class="w-full bg-red-700 text-white font-bold py-4 rounded-xl shadow-lg active:scale-95 transition">
+                XUẤT BẢN NGAY
+            </button>
+        </div>
     </div>
+
     <script>
-        function gen() {
-            let md = `# ${document.getElementById('t').value}\n\n${document.getElementById('c').value}\n\n`;
-            md += `<iframe src="${document.getElementById('l').value.replace('/view', '/preview')}" width="100%" height="600px"></iframe>`;
-            document.getElementById('out').innerText = md;
-            document.getElementById('out').classList.remove('hidden');
+        function updateFileName() {
+            const f = document.getElementById('file').files[0];
+            if(f) document.getElementById('fileLabel').innerText = "✅ " + f.name;
+        }
+
+        function upload() {
+            const btn = document.getElementById('btn');
+            const file = document.getElementById('file').files[0];
+            if(!file) return alert("Chọn file đã Chief!");
+
+            btn.disabled = true;
+            btn.innerText = "ĐANG XỬ LÝ...";
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const fileData = {
+                    base64: e.target.result.split(',')[1],
+                    mimeType: file.type,
+                    fileName: file.name
+                };
+                const postData = {
+                    title: document.getElementById('title').value,
+                    summary: document.getElementById('summary').value,
+                    folder: document.getElementById('folder').value
+                };
+                google.script.run.withSuccessHandler(() => {
+                    alert("Đã xong! Kiểm tra web sau 1 phút.");
+                    location.reload();
+                }).processFullUpdate(postData, fileData);
+            };
+            reader.readAsDataURL(file);
         }
     </script>
 </body>
