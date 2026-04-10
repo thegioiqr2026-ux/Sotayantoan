@@ -1,19 +1,21 @@
+* [🏠 TRANG CHỦ](README.md)
+
 * **HỆ THỐNG VDC**
-  * [🏠 Trang chủ](README.md)
-  * [📢 Thông báo mới](thong-bao.md)
+  * [Trang chủ](trang-chu/README.md)
+  * [Thông báo](thong-bao/README.md)
 
 * **AN TOÀN CHUYÊN NGÀNH**
-  * [⚡ An toàn Điện](an-toan-dien/README.md)
-  * [🏗️ An toàn Xây dựng](an-toan-xay-dung.md)
+  * [An toàn điện](an-toan-đien/README.md)
+  * [An toàn xây dựng](an-toan-xay-dung/README.md)
+  * [An toàn hóa chất](an-toan-hoa-chat/README.md)
 
 * **DỰ ÁN TIÊU BIỂU**
-  * [🚇 Metro Số 1](metro-no1.md)
-  * [👕 Scavi Biên Hòa](scavi.md)
+  * [Camera giám sát](camera-giam-sat/README.md)
+  * [Thế giới QR](the-gioi-qr/README.md)
 
 * **THƯ VIỆN PHÁP LUẬT**
-  * [📜 Luật ATVSLĐ](luat-atvsld.md)
-  * [📘 Nghị định 44/2016](nd-44.md)
+  * [Lĩnh vực ATVSLĐ](linh-vuc-atvslđ/README.md)
+  * [Lĩnh vực Điện lực](linh-vuc-đien-luc/README.md)
+  * [Lĩnh vực Hóa chất](linh-vuc-hoa-chat/README.md)
+  * [Lĩnh vực  Xây dựng](linh-vuc-xay-dung/README.md)
 
-* [📞 LIÊN HỆ VDC](lien-he.md)
-
-  * [Luật điện lực 2024](an-toan-dien/1775753524037.md)
